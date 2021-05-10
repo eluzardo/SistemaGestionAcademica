@@ -19,11 +19,11 @@ const sqlConfig = {
 }
 
 
-const conexionSQL = async function conectar () {
+const conexionSQL = async function conectar() {
     try {
-        const conexion = await sql.connect(sqlConfig).then(() => {
-        console.log('Conexion OKa' )})
-       console.log (conexion)
+        const conexion = await sql.connect(sqlConfig)
+        console.log('Conexion OKa')
+        return conexion
     } catch (e) {
         console.log(e)
         throw new Error('Error')
@@ -33,6 +33,9 @@ const conexionSQL = async function conectar () {
 
 }
 
-module.exports = conexionSQL 
+module.exports = {
+    conexionSQL,
+    sqlConfig
+}
 
 
